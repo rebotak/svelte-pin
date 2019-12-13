@@ -1,0 +1,7 @@
+node_modules
+package-lock.json
+example/public/*
+.vscode
+.idea
+.prettierrc
+!example/public/index.html

@@ -1,0 +1,38 @@
+{
+	"name": "svelte-pin-input",
+	"version": "0.0.2",
+	"description": "Input masking component for Svelte",
+	"main": "./PinInput.svelte",
+	"scripts": {
+		"size": "size-limit"
+	},
+	"files": [
+		"MaskInput.svelte",
+		"NumberInput.svelte"
+	],
+	"keywords": [
+		"svelte",
+		"pin",
+		"input",
+		"mask",
+		"svelte-component",
+		"svelte-pin",
+		"svelte-pin-input",
+		"svelte-input-mask",
+		"svelte-mask-input",
+		"svelte-text-mask",
+		"svelte-input"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rebotak/svelte-pin-input.git"
+	},
+	"author": "Pais Rebotak (rebotak@gmail.com)",
+	"license": "MIT",
+	"peerDependencies": {
+		"svelte": "^3.0.0"
+	},
+	"devDependencies": {
+		"prettier": "^1.18.2"
+	}
+}
