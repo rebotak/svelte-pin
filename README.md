@@ -1,24 +1,15 @@
 ## Masked PIN input components for svelte.
 
-### Run demo at local:
-
-```
-git clone git@github.com:xnimorz/svelte-input-mask.git
-cd svelte-input-mask/demo
-npm install
-npm run dev
-```
-
 ### Install:
 
 ```sh
-npm install --save svelte-input-mask
+npm install --save svelte-pin-input
 ```
 
 or yarn:
 
 ```sh
-yarn add svelte-input-mask
+yarn add svelte-pin-input
 ```
 
 ### Usage:

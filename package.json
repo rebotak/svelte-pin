@@ -1,14 +1,13 @@
 {
-	"name": "svelte-pin-input",
-	"version": "0.0.2",
+	"name": "svelte-pin",
+	"version": "0.0.1",
 	"description": "Input masking component for Svelte",
-	"main": "./PinInput.svelte",
+	"main": "./index.svelte",
 	"scripts": {
 		"size": "size-limit"
 	},
 	"files": [
-		"MaskInput.svelte",
-		"NumberInput.svelte"
+		"index.svelte"
 	],
 	"keywords": [
 		"svelte",
@@ -33,6 +32,6 @@
 		"svelte": "^3.0.0"
 	},
 	"devDependencies": {
-		"prettier": "^1.18.2"
+		"prettier": "^1.0.0"
 	}
 }
