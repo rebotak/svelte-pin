@@ -3,20 +3,14 @@
 ### Install:
 
 ```sh
-npm install --save svelte-pin-input
-```
-
-or yarn:
-
-```sh
-yarn add svelte-pin-input
+npm i -s svelte-pin
 ```
 
 ### Usage:
 
 ```js
 <script>
-  import PinInput from 'svelte-pin-input';
+  import PinInput from 'svelte-pin';
   let value;
 </script>
 
