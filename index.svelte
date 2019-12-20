@@ -1,10 +1,10 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
 
   const KEYBOARD = {
     BACKSPACE: 8,
     DELETE: 46,
-    ANDROID_BACKSPACE: 229,
+    ANDROID_BACKSPACE: 229
   };
 
   let inputs = [0];
@@ -14,41 +14,55 @@
   export let size = 6;
 
   onMount(async () => {
-    inputs = createArray(size);
-    pins = createValueSlot(inputs);
+    inputs = await createArray(size);
+    pins = await createValueSlot(inputs);
     pin = calcPin(pins);
-    document.getElementById('pin0').focus();
+    document.getElementById("pin0").focus();
   });
 
   const calcPin = pins => {
     if (Object.values(pins).length) {
-      return Object.values(pins).join('');
-    } else return '';
+      return Object.values(pins).join("");
+    } else return "";
   };
 
-  const changeHandler = function(e) {
-    let val = e.target.value;
+  const changeHandler = function(e, i) {
     let nextPin = e.target.nextElementSibling;
     let prevPin = e.target.previousElementSibling;
+    let regx = new RegExp(/^\d+$/);
     if (
-      (e.keyCode == KEYBOARD.BACKSPACE || e.keyCode == KEYBOARD.DELETE || e.keyCode == KEYBOARD.ANDROID_BACKSPACE) &&
-      !val &&
-      prevPin
+      (e.keyCode == KEYBOARD.BACKSPACE ||
+        e.keyCode == KEYBOARD.DELETE ||
+        e.keyCode == KEYBOARD.ANDROID_BACKSPACE) &&
+      !prevPin
     ) {
-      prevPin.focus();
+      pins[i] = "";
     } else if (
-      (e.keyCode == KEYBOARD.BACKSPACE || e.keyCode == KEYBOARD.DELETE || e.keyCode == KEYBOARD.ANDROID_BACKSPACE) &&
-      val &&
+      (e.keyCode == KEYBOARD.BACKSPACE ||
+        e.keyCode == KEYBOARD.DELETE ||
+        e.keyCode == KEYBOARD.ANDROID_BACKSPACE) &&
       prevPin
     ) {
-      val = '';
-      prevPin;
-    } else if (val && this.value.length && nextPin) {
-      nextPin.focus();
+      pins[i] = "";
+      prevPin.focus();
+    } else if (nextPin) {
+      if (regx.test(e.key)) {
+        pins[i] = e.key;
+      } else {
+        return;
+      }
+      setTimeout(() => {
+        nextPin.focus();
+      }, 0);
+    } else {
+      if (regx.test(e.key)) {
+        pins[i] = e.key;
+      } else {
+        return;
+      }
     }
-    setTimeout(() => {
-      pin = calcPin(pins);
-    }, 0);
+
+    pin = calcPin(pins);
   };
   const createArray = size => {
     return new Array(size);
@@ -57,7 +71,7 @@
     return arr.reduce((obj, item) => {
       return {
         ...obj,
-        [item]: '',
+        [item]: ""
       };
     }, {});
   };
@@ -75,7 +89,6 @@
     flex-wrap: nowrap;
   }
   input {
-    font-size: 28px;
     width: 32px;
     -webkit-text-security: disc;
     border: none;
@@ -101,7 +114,7 @@
         type="tel"
         pattern="\d{1}"
         maxlength="1"
-        on:keydown={changeHandler}
+        on:keydown|preventDefault={event => changeHandler(event, i)}
         placeholder="" />
     {/each}
   {/if}
