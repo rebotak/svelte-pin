@@ -1,6 +1,6 @@
 ## Masked PIN input components for svelte.
 
-see the [demo](https://public-five-opal.now.sh/)
+see the [demo](https://svelte-test.rebotak.now.sh/)
 
 ### Install:
 
