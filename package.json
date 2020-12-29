@@ -1,6 +1,6 @@
 {
 	"name": "svelte-pin",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Input masking component for Svelte",
 	"main": "./index.svelte",
 	"scripts": {
